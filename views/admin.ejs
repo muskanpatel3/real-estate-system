@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,  
+                   initial-scale=1.0" />
+  <title>Real estate system</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link rel="stylesheet" href="/stylesheets/responsive.css" />
+</head>
+
+<body>
+  <!-- for header part -->
+  <header>
+    <div class="logosec">
+      <div class="logo"><a href="/home" class="logo"><i class='bx bx-home'></i>VASTU VILLA</a></div>
+      <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png"
+        class="icn menuicn" id="menuicn" alt="menu-icon" />
+    </div>
+
+    <div class="message">
+      <div class="circle"></div>
+      <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/8.png" class="icn" alt="" />
+      <div class="dp">
+        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180014/profile-removebg-preview.png"
+          class="dpicn" alt="dp" />
+      </div>
+    </div>
+  </header>
+
+  <div class="main-container">
+    <div class="navcontainer">
+      <nav class="nav">
+        <div class="nav-upper-options">
+          <div class="nav-option option1">
+            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
+              class="nav-img" alt="dashboard" />
+            <h3>Dashboard</h3>
+          </div>
+
+          <div class="option2 nav-option">
+            <a href="/properties" style="display: contents">
+
+              <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ35BqGLR3mqnNpEyGMaQ_sQ5IvLUBrrDz0szZQJUnQlk7ZjHp8" class="nav-img"
+                alt="articles" />
+              <h3>Authanticate Property</h3>
+            </a>
+          </div>
+
+          <div class="option2 nav-option">
+            <a href="/all_property" style="display: contents"> 
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6eVvuioajU0CQ5fv4UBIdPTRSrjqabV0am0aV1NgwTWM-y0At" class="nav-img"
+              alt="articles" />
+            <h3>All Property</h3>
+            </a>
+          </div>
+
+          <div class="option2 nav-option">
+            <a href="/all_reviews" style="display: contents"> 
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAfmd9TAbd39hf5bkZVNY7r1guj44vNh0UBofnvuWFXQ8KzNVO" class="nav-img"
+              alt="articles" />
+            <h3>Feedback</h3>
+            </a>
+          </div>
+
+          <div class="nav-option logout">
+            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png" class="nav-img"
+              alt="logout" />
+            <h3><a href="/">LOGOUT</a></h3>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="main">
+      <div class="report-container">
+        <div class="report-header">
+          <h1 class="recent-Articles">Total Users</h1>
+        </div>
+
+        <div class="report-body">
+          <div class="report-topic-heading">
+            <h3 class="t-op">Name</h3>
+            <h3 class="t-op">Email</h3>
+            <h3 class="t-op">Number</h3>
+          </div>
+
+          <div class="items">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    let menuicn = document.querySelector(".menuicn");
+    let nav = document.querySelector(".navcontainer");
+
+    menuicn.addEventListener("click", () => {
+      nav.classList.toggle("navclose");
+    });
+
+    fetch("http://localhost:3000/allusers")
+      .then((res) => res.json())
+      .then((data) => {
+        let html = "";
+        data.forEach((product) => {
+          html += `
+          <div class="item1">
+            <h3 class="t-op-nextlvl"l style="width:110px">${product.fullName}</h3>
+            <h3 class="t-op-nextlvl" style="width:110px">${product.email}k</h3>
+            <h3 class="t-op-nextlvl" style="width:110px">${product.phoneNumber}</h3>
+        </div>
+        <hr>
+      `;
+        });
+
+        document.querySelector(".items").innerHTML = html;
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  </script>
+</body>
+
+</html>

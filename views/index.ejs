@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real estate system</title>
+    <link rel="stylesheet" href="stylesheets/project.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.0/css/boxicons.min.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="nav container">
+            <a href="/" class="logo"><i class='bx bx-home'></i>VASTU VILLA</a>
+            <input type="checkbox" name="" id="menu">
+            <label for="menu"></label><i class='bx bx-menu' id="menu-icon"></i></label>
+            <ul class="navbar">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#sales">Sales</a></li>
+                <li><a href="#properties">Properties</a></li>
+            </ul>
+            <a href="/login" class="btn">Log In</a>
+        </div>
+    </header>
+
+    <section class="home container" id="home">
+        <div class="home-text">
+            <h1>Find Your Next <br>Perfect Place To <br>Live.</h1>
+            <a href="/sign-up" class="btn">Sign Up</a>
+        </div>
+    </section>
+
+    <section class="about container" id="about">
+        <div class="about-img">
+            <img src="https://masterbundles.com/wp-content/uploads/2022/12/1-little-house-on-green-grass-99.png" alt="">
+        </div>
+        <div class="about-text">
+            <span>About Us</span>
+            <h2>We Provide The Best <br>Property For You !</h2>
+            <p>This the property for sell</p>
+            <p>You should have to try to buy this property</p>
+            <p>This is wanna be your's</p>
+            <a href="#" class="btn">Learn More</a>
+        </div>
+    </section>
+
+    <section class="sales container" id="sales">
+        <div class="box">
+            <i class='bx bx-user'></i>
+            <h3>Make Your Dream True</h3>
+            <p>This property is feels like home</p>
+        </div>
+
+        <div class="box">
+            <i class='bx bx-desktop'></i>
+            <h3>Start Your Membership</h3>
+            <p>This property is feels like home</p>
+        </div>
+
+        <div class="box">
+            <i class='bx bx-home-alt'></i>
+            <h3>Enjoy your new home</h3>
+            <p>This property is feels like home</p>
+        </div>
+    </section>
+
+    <section class="properties container" id="properties">
+        <div class="heading">
+            <span>Recent</span>
+            <h2>Our Featured Properties</h2>
+            <p>We know that <br>this is the best</p>
+        </div>
+        <div class="properties-container container" id="cards">
+           
+        </div>
+    </section>
+
+    <section class="newsletter container">
+        <h2>Give us your Feedback? <br>It will help us to improve the website</h2>
+        <form action="" method="POST" style="display: flex; flex-direction: column; gap: 10px; width: 50%;">
+            <!-- Email input box -->
+            <input type="email" name="email" id="email-box" placeholder="Enter your email" required required  required pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="Add the character @ after the alphabet or numbers and add gmail.com"
+                   style="width: 100%; height: 40px; padding: 8px; border-bottom: 1px solid gray;">
+        
+            <!-- Container for sentence input box and send button -->
+            <div style="position: relative; width: 100%; height: 40px;">
+                <!-- Sentence input box -->
+                <input type="text" name="sentence" id="sentence-box" placeholder="Write your feedback" required pattern="[*]"
+                title="You should have to login first" style="width: 100%; height: 40px; padding: 8px;">
+                
+                <!-- Send button -->
+                <button type="submit" class="btn"
+                        style="position: absolute; left: 50%; bottom: -53px; transform: translateX(-50%); height: 45px;">Send</button>
+            </div>
+        </form>
+        
+        
+        
+    </section>
+
+    <section class="footer">
+        <div class="footer-container container">
+            <h2>R. State</h2>
+            <div class="footer-box">
+                <h3>Quick Link</h3>
+                <a href="#">Agency</a>
+                <a href="#">Building</a>
+                <a href="#">Rates</a>
+            </div>
+            <div class="footer-box">
+                <h3>Locations</h3>
+                <a href="#">Mumbai</a>
+                <a href="#">Bangalore</a>
+                <a href="#">Goa</a>
+            </div>
+            <div class="footer-box">
+                <h3>Contact</h3>
+                <a href="#">+91 9131557625</a>
+                <a href="#">realstate03@gmail.com</a>
+                <div class="social">
+                    <a href="#"><i class='bx bxl-facebook'></i></a>
+                    <a href="#"><i class='bx bxl-twitter'></i></a>
+                    <a href="#"><i class='bx bxl-instagram'></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="CopyRight">
+        <p>&#169; All Right Reserved</p>
+    </div>
+
+    <script>
+        // alert("hello")
+        localStorage.clear();
+        fetch("http://localhost:3000/allproperty")
+            .then((data) => {
+                return data.json();
+            })
+            .then((completedata) => {
+                let data1 = "";
+                completedata.map((values) => {
+                    data1 += ` <div class="box">
+                <img src="${values.Property_image}"
+                    alt="">
+                <h3>${values.Property_price}rs</h3>
+                <div class="content">
+                    <div class="text">
+                        <h3>${values.Property_type}</h3>
+                        <p>${values.Property_location}</p>
+                    </div>
+                    <div class="icon">
+                        <i class='bx bx-bed'><span></span></i>
+                        <i class='bx bx-bath'><span></span></i>
+                    </div>
+                </div>
+               
+                <button style="border: none;"><a style="background-color: #fff;
+    color: #2288ff;" href="/" onClick=handleOnCLick(${values.Owner_no})>View Property</a></button>
+
+            </div>`;
+                    document.getElementById("cards").innerHTML = data1
+                });
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        const handleOnCLick = (num) => {
+            if(localStorage.getItem == "Owner_no"){
+                window.location.href = "/property";
+            }else{
+                alert("You Have to login first");
+                window.location.href = "/";
+            }
+            
+        }
+    </script>
+
+</body>
+
+</html>

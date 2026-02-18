@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign Up</title>
+        <link rel="stylesheet" href="stylesheets/project.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.0/css/boxicons.min.css">
+    </head>
+    <body>
+        <header>
+            <div class="nav container">
+                <a href="/" class="logo"><i class='bx bx-home'></i>VASTU VILLA</a>
+ 
+                <a href="/login" class="btn">Log In</a> 
+            </div>
+        
+        </header>
+
+        <div class="login container">
+            <div class="login-container">
+                <h2>Welcome , Let's get started</h2>
+                <%if(error) {%>
+                    <p>This email Already exist</p>
+                <% } %>
+                <p>Already have account ? <a href="/login">Log In</a></p>
+                <form action="/registration" method="post">
+                    <span>Full Name</span>
+                    <input type="text" name="name" id="name" placeholder="Your Name" required pattern="[A-Za-z ]{5,25}" title="The Name should have at least 5 to 25 alphabet">
+                    <span>Enter your email address</span>
+                    <input type="email" name="email" id="email" placeholder="youremail@gmail.com" required pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="Add the character @ after the alphabet or numbers and add gmail.com">
+                    <span>Phone Number</span>
+                    <input type="tel" name="phone" id="phone" placeholder="Enter your 10 digit number" required pattern="[6-9]{1}[0-9]{9}" title="Must contain atleast 10 digits">
+                    <span>Enter your password</span>
+                    <input type="password" name="password" id="password" placeholder="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,15}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 10-15 character">
+                    <input type="submit" value="Sign Up" class="buttom">
+                    <a href="/login">Already have account ? </a>
+                </form>
+                <a href="/login" class="btn">Log In</a>
+            </div>
+            <div class="login-image">
+                <img src="https://cdni.iconscout.com/illustration/premium/thumb/sign-up-page-1886582-1598253.png" alt=""> 
+            </div>
+        </div>
+
+            <section class="footer">
+                <div class="footer-container container">
+                    <h2>R. State</h2>
+                    <div class="footer-box">
+                        <h3>Quick Link</h3>
+                        <a href="#">Agency</a>
+                        <a href="#">Building</a>
+                        <a href="#">Rates</a>
+                    </div>
+                    <div class="footer-box">
+                        <h3>Locations</h3>
+                        <a href="#">Mumbai</a>
+                        <a href="#">Bangalore</a>
+                        <a href="#">Goa</a>
+                    </div>
+                    <div class="footer-box">
+                        <h3>Contact</h3>
+                        <a href="#">+91 9131557625</a>
+                        <a href="#">muskanpatel03@gmail.com</a>
+                        <div class="social">
+                            <a href="#"><i class='bx bxl-facebook'></i></a>
+                            <a href="#"><i class='bx bxl-twitter'></i></a>
+                            <a href="#"><i class='bx bxl-instagram'></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="CopyRight">
+                <p>&#169;All Right Reserved</p>
+            </div>
+
+    </body>
+</html>

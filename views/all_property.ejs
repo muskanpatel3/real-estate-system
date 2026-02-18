@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,  
+                   initial-scale=1.0" />
+  <title>Real estate system</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link rel="stylesheet" href="/stylesheets/responsive.css" />
+</head>
+
+<style>
+  .option1 {
+    border-left: 5px solid #010058af;
+    background-color: var(--Border-color);
+    color: white;
+    cursor: pointer;
+  }
+
+  .option1:hover {
+    border-left: 5px solid #010058af;
+    background-color: var(--Border-color);
+  }
+</style>
+
+<body>
+  <!-- for header part -->
+  <header>
+    <div class="logosec">
+      <div class="logo"><a href="/home" class="logo"><i class='bx bx-home'></i>VASTU VILLA</a></div>
+      <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png"
+        class="icn menuicn" id="menuicn" alt="menu-icon" />
+    </div>
+
+    <div class="message">
+      <div class="circle"></div>
+      <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/8.png" class="icn" alt="" />
+      <div class="dp">
+        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180014/profile-removebg-preview.png"
+          class="dpicn" alt="dp" />
+      </div>
+    </div>
+  </header>
+
+  <div class="main-container">
+    <div class="navcontainer">
+      <nav class="nav">
+        <div class="nav-upper-options">
+          <div class="nav-option option2">
+            <a href="/admin" style="display: contents">
+              <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
+                class="nav-img" alt="dashboard" />
+              <h3>Dashboard</h3>
+            </a>
+          </div>
+
+          <div class="option2 nav-option">
+            <a href="/properties" style="display: contents">
+            <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ35BqGLR3mqnNpEyGMaQ_sQ5IvLUBrrDz0szZQJUnQlk7ZjHp8" class="nav-img"
+              alt="articles" />
+            <h3>Authanticate Property</h3>
+            </a>
+          </div>
+
+          <div class="option1 nav-option">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6eVvuioajU0CQ5fv4UBIdPTRSrjqabV0am0aV1NgwTWM-y0At" class="nav-img"
+              alt="articles" />
+            <h3>All Property</h3>
+          </div>
+
+          <div class="option2 nav-option">
+            <a href="/all_reviews" style="display: contents"> 
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAfmd9TAbd39hf5bkZVNY7r1guj44vNh0UBofnvuWFXQ8KzNVO" class="nav-img"
+              alt="articles" />
+            <h3>Feedback</h3>
+            </a>
+          </div>
+
+          <div class="nav-option logout">
+            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png" class="nav-img"
+              alt="logout" />
+              <h3><a href="/">LOGOUT</a></h3>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="main">
+      <div class="searchbar2">
+        <input type="text" name="" id="" placeholder="Search" />
+        <div class="searchbtn">
+          <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
+            class="icn srchicn" alt="search-button" />
+        </div>
+      </div>
+
+      <div class="box-container">
+        <div class="box box1">
+          <div class="text">
+            <h2 class="topic-heading">60.5k</h2>
+            <h2 class="topic">Article Views</h2>
+          </div>
+
+          <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210184645/Untitled-design-(31).png"
+            alt="Views" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let menuicn = document.querySelector(".menuicn");
+    let nav = document.querySelector(".navcontainer");
+
+    menuicn.addEventListener("click", () => {
+      nav.classList.toggle("navclose");
+    });
+
+    fetch("http://localhost:3000/allproperty")
+      .then((res) => res.json())
+      .then((data) => {
+        let html = "";
+        data.forEach((product) => {
+          html += `
+      <div class="box " style="width: fit-content;" onClick = permitt(${product.Owner_no})>
+            <div class="text">
+              <h2 class="topic-heading">${product.Property_location}</h2>
+              <h2 class="topic">${product.Property_type}</h2>
+            </div>
+
+            <img
+              src="${product.Property_image}"
+              alt="published"
+            />
+          </div>
+      `;
+        });
+
+        document.querySelector(".box-container").innerHTML = html;
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
+    const permitt = (id) => {
+      fetch('http://localhost:3000/delete_property/' +id, {
+        method: 'GET',
+      })
+        .then(data => {
+          console.log('Success:', data);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }
+  </script>
+</body>
+
+</html>

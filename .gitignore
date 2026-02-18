@@ -1,0 +1,11 @@
+# Node modules
+node_modules/
+
+# Temp / test files
+temp.js
+
+# Uploaded images
+public/images/uploads/*
+
+# Environment / secrets
+.env

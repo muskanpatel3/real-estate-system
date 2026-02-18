@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Log In</title>
+        <link rel="stylesheet" href="/stylesheets/project.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.0/css/boxicons.min.css">
+    </head>
+    <body>
+        <header>
+            <div class="nav container">
+                <a href="/" class="logo"><i class='bx bx-home'></i>VASTU VILLA</a>
+ 
+                <a href="/sign-up" class="btn">Sign Up</a> 
+            </div>
+        
+        </header>
+
+        <div class="login container">
+            <div class="login-container">
+                <%if(error) {%>
+                    <p><%=error%></p>
+                <% } %>
+                <h2>Login To Continue</h2>
+                <p>Log in with your data that you entered <br>during your registration</p>
+                <form action="/login" method="post">
+                    <span>Enter your email address</span>
+                    <input type="email" name="email" id="email" placeholder="youremail@gmail.com" required
+                    pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="Add the character @ after the alphabet or numbers and add gmail.com">
+                    <span>Enter your password</span>
+                    <input type="password" name="password" id="password" placeholder="password" required>
+                    <input type="submit" value="Log In" class="buttom">
+                </form>
+                <a href="/sign-up" class="btn">Sign up now</a>
+            </div>
+            <div class="login-image">
+                <img src="https://cdni.iconscout.com/illustration/premium/thumb/welcome-to-team-2931984-2459036.png" alt=""> 
+            </div>
+        </div>
+
+
+            <section class="footer">
+                <div class="footer-container container">
+                    <h2>R. State</h2>
+                    <div class="footer-box">
+                        <h3>Quick Link</h3>
+                        <a href="#">Agency</a>
+                        <a href="#">Building</a>
+                        <a href="#">Rates</a>
+                    </div>
+                    <div class="footer-box">
+                        <h3>Locations</h3>
+                        <a href="#">Mumbai</a>
+                        <a href="#">Bangalore</a>
+                        <a href="#">Goa</a>
+                    </div>
+                    <div class="footer-box">
+                        <h3>Contact</h3>
+                        <a href="#">+91***</a>
+                        <a href="#">youremail@gmail.com</a>
+                        <div class="social">
+                            <a href="#"><i class='bx bxl-facebook'></i></a>
+                            <a href="#"><i class='bx bxl-twitter'></i></a>
+                            <a href="#"><i class='bx bxl-instagram'></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="CopyRight">
+                <p>&#169; All Right Reserved</p>
+            </div>
+
+    </body>
+</html>

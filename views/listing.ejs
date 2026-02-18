@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real estate system</title>
+    <link rel="stylesheet" href="stylesheets/project.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.0/css/boxicons.min.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="nav container">
+            <a href="/home" class="logo"><i class='bx bx-home'></i>VASTU VILLA</a>
+            <input type="checkbox" name="" id="menu">
+            <label for="menu"></label><i class='bx bx-menu' id="menu-icon"></i></label>
+            <ul class="navbar">
+            </ul>
+        </div>
+    </header>
+
+    <section class="property-form container">
+        <h2>List Your Property</h2>
+        <form id="listing" action="/listing" method="post" >
+            <label for="phone">Owner Number</label>
+            <input type="tel" name="phone" id="phone" placeholder="Enter your 10 digit number" required pattern="[6-9]{1}[0-9]{9}" title="Must contain atleast 10 digits">
+
+            <label for="email">Owner Email:</label>
+            <input type="email" name="email" id="email" placeholder="Enter your registered email" required
+            pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="Add the character @ after the alphabet or numbers and add gmail.com">
+
+            <label for="propertyName">Property Type:</label>
+            <input type="text" id="propertyName" placeholder="Enter the type of your property" name="propertyName" pattern="[A-Za-z0-9\s]+" required>
+    
+            <label for="propertyLocation">Property Location:</label>
+            <input type="text" id="propertyLocation" placeholder="Location of your property" name="propertyLocation" pattern="[A-Za-z\s]+" required>
+    
+            <label for="propertyPrice">Property Price:</label>
+            <input type="text" id="propertyPrice" placeholder="Price of your property" name="propertyPrice" pattern="[0-9A-Z]+" required>
+    
+            <label for="propertyDescription">Property Description:</label>
+            <textarea id="propertyDescription" placeholder="Write the Description" name="propertyDescription" pattern="[A-Za-z0-9\s]+" required></textarea>
+    
+            <label for="propertyImage">Property Image:</label>
+            <input type="text" id="propertyImage" placeholder="Enter the link " name="propertyImage" required>
+            
+             <!-- <label for="propertyImage">Property Image:</label> -->
+            <!-- <input type="file" id="propertyImage" name="propertyImage" accept="image/*" required>  -->
+
+            <button type="submit" class="btn">Submit</button>
+
+        </form>
+    </section>
+
+    <section class="footer">
+        <div class="footer-container container">
+            <h2>R. State</h2>
+            <div class="footer-box">
+                <h3>Quick Link</h3>
+                <a href="#">Agency</a>
+                <a href="#">Building</a>
+                <a href="#">Rates</a>
+            </div>
+            <div class="footer-box">
+                <h3>Locations</h3>
+                <a href="#">Mumbai</a>
+                <a href="#">Bangalore</a>
+                <a href="#">Goa</a>
+            </div>
+            <div class="footer-box">
+                <h3>Contact</h3>
+                <a href="#">+91 9131557525>
+                <a href="#">realstate03@gmail.com</a>
+                <div class="social">
+                    <a href="#"><i class='bx bxl-facebook'></i></a>
+                    <a href="#"><i class='bx bxl-twitter'></i></a>
+                    <a href="#"><i class='bx bxl-instagram'></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="CopyRight">
+        <p>&#169;  All Right Reserved</p>
+    </div>
+
+</body>
+</html>
